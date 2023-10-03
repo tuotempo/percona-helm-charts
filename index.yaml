@@ -18,7 +18,6 @@ entries:
       name: nmarukovich
     name: pxc-db
     urls:
-    - pxc-db-1.13.3-tt.tgz
     - https://github.com/tuotempo/percona-helm-charts/releases/download/pxc-db-1.13.3-tt/pxc-db-1.13.3-tt.tgz
     version: 1.13.3-tt
   - apiVersion: v2
