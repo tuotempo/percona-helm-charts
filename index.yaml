@@ -78,3 +78,4 @@ entries:
     - https://github.com/tuotempo/percona-helm-charts/releases/download/pxc-db-1.13.2-tt/pxc-db-1.13.2-tt.tgz
     version: 1.13.2-tt
 generated: "2023-10-09T16:37:24.411470285+02:00"
+
