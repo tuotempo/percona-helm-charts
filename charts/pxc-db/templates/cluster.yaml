@@ -182,6 +182,12 @@ spec:
         storageClassName: "{{ $pxc.persistence.storageClass }}"
         {{- end }}
         {{- end }}
+        ## added datasource
+        {{- if $pxc.persistence.dataSource }}
+        dataSource:
+{{ $pxc.persistence.dataSource | toYaml | indent 10 }}
+        {{- end }}
+        ## end: added datasource
         accessModes: [{{ $pxc.persistence.accessMode | quote }}]
         {{- if $pxc.persistence.dataSource }}
         dataSource:
