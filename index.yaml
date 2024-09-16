@@ -2,6 +2,31 @@ apiVersion: v1
 entries:
   pg-db:
   - apiVersion: v2
+    appVersion: 2.4.1
+    created: "2024-09-16T12:28:43.309073132Z"
+    description: A Helm chart to deploy the PostgreSQL database with the Percona Operator for PostgreSQL
+    digest: b6a79c4e70e54617fb6bb596813320ebab5aed3aeeee0f188ca84ca6378240f0
+    home: https://docs.percona.com/percona-operator-for-postgresql/2.0/
+    keywords:
+    - PostgreSQL
+    - Operator
+    - Database
+    - Postgres
+    - SQL
+    - RDBMS
+    maintainers:
+    - email: tomislav.plavcic@percona.com
+      name: tplavcic
+    - email: sergey.pronin@percona.com
+      name: spron-in
+    - email: natalia.marukovich@gmail.com
+      name: nmarukovich
+    name: pg-db
+    type: application
+    urls:
+    - https://github.com/tuotempo/percona-helm-charts/releases/download/pg-db-2.4.3/pg-db-2.4.3.tgz
+    version: 2.4.3
+  - apiVersion: v2
     appVersion: 2.3.1
     created: "2024-05-14T09:56:05.066693073Z"
     description: A Helm chart to deploy the PostgreSQL database with the Percona Operator for PostgreSQL
@@ -27,6 +52,31 @@ entries:
     - https://github.com/tuotempo/percona-helm-charts/releases/download/pg-db-2.3.17/pg-db-2.3.17.tgz
     version: 2.3.17
   pg-operator:
+  - apiVersion: v2
+    appVersion: 2.4.1
+    created: "2024-09-16T12:28:43.43462613Z"
+    description: A Helm chart to deploy the Percona Operator for PostgreSQL
+    digest: a2bdf69dece69097d7e1c7a26b24e12aca256d513026e4f6e4edac99a34cab3c
+    home: https://docs.percona.com/percona-operator-for-postgresql/2.0/
+    keywords:
+    - PostgreSQL
+    - Operator
+    - Database
+    - Postgres
+    - SQL
+    - RDBMS
+    maintainers:
+    - email: tomislav.plavcic@percona.com
+      name: tplavcic
+    - email: sergey.pronin@percona.com
+      name: spron-in
+    - email: natalia.marukovich@gmail.com
+      name: nmarukovich
+    name: pg-operator
+    type: application
+    urls:
+    - https://github.com/tuotempo/percona-helm-charts/releases/download/pg-operator-2.4.2/pg-operator-2.4.2.tgz
+    version: 2.4.2
   - apiVersion: v2
     appVersion: 2.3.1
     created: "2024-05-14T09:56:05.201777111Z"
@@ -54,6 +104,28 @@ entries:
     version: 2.3.4
   pmm:
   - apiVersion: v2
+    appVersion: 2.42.0
+    created: "2024-09-16T12:28:43.568321191Z"
+    description: A Helm chart for Percona Monitoring and Management (PMM)
+    digest: 3c760ae836fe21e649fa913610fd9dfdb39c6d2cd5daab91517bc8d12e85ae4a
+    home: https://github.com/percona/pmm
+    icon: https://www.percona.com/sites/default/files/pmm-logo.png
+    keywords:
+    - PMM
+    - Monitoring
+    maintainers:
+    - email: tomislav.plavcic@percona.com
+      name: tplavcic
+    - email: nurlan.moldomurov@percona.com
+      name: bupychuk
+    - email: sergey.pronin@percona.com
+      name: spron-in
+    name: pmm
+    type: application
+    urls:
+    - https://github.com/tuotempo/percona-helm-charts/releases/download/pmm-1.3.14/pmm-1.3.14.tgz
+    version: 1.3.14
+  - apiVersion: v2
     appVersion: 2.41.2
     created: "2024-05-14T09:56:05.3192282Z"
     description: A Helm chart for Percona Monitoring and Management (PMM)
@@ -77,6 +149,21 @@ entries:
     version: 1.3.13
   ps-db:
   - apiVersion: v2
+    appVersion: 0.8.0
+    created: "2024-09-16T12:28:43.673636091Z"
+    description: A Helm chart for installing Percona Server Databases using the PS Operator.
+    digest: 521837b821e9b119f882b492147dd82991c0148d748575624c878426b1eabda3
+    home: https://www.percona.com/doc/kubernetes-operator-for-mysql/ps
+    maintainers:
+    - email: tomislav.plavcic@percona.com
+      name: tplavcic
+    - email: natalia.marukovich@percona.com
+      name: nmarukovich
+    name: ps-db
+    urls:
+    - https://github.com/tuotempo/percona-helm-charts/releases/download/ps-db-0.8.0/ps-db-0.8.0.tgz
+    version: 0.8.0
+  - apiVersion: v2
     appVersion: 0.7.0
     created: "2024-05-14T09:56:05.453038522Z"
     description: A Helm chart for installing Percona Server Databases using the PS Operator.
@@ -92,6 +179,23 @@ entries:
     - https://github.com/tuotempo/percona-helm-charts/releases/download/ps-db-0.7.0/ps-db-0.7.0.tgz
     version: 0.7.0
   ps-operator:
+  - apiVersion: v2
+    appVersion: 0.8.0
+    created: "2024-09-16T12:28:43.800081227Z"
+    description: A Helm chart for Deploying the Percona Operator for MySQL (based on Percona Server for MySQL)
+    digest: 54184c8eca6121a2706fd85a990fd49e3db03ea3f783bde94643d845e0071b43
+    home: https://docs.percona.com/percona-operator-for-mysql/ps/
+    maintainers:
+    - email: tomislav.plavcic@percona.com
+      name: tplavcic
+    - email: natalia.marukovich@percona.com
+      name: nmarukovich
+    - email: sergey.pronin@percona.com
+      name: spron-in
+    name: ps-operator
+    urls:
+    - https://github.com/tuotempo/percona-helm-charts/releases/download/ps-operator-0.8.0/ps-operator-0.8.0.tgz
+    version: 0.8.0
   - apiVersion: v2
     appVersion: 0.7.0
     created: "2024-05-14T09:56:05.5699977Z"
@@ -111,6 +215,21 @@ entries:
     version: 0.7.0
   psmdb-db:
   - apiVersion: v2
+    appVersion: 1.17.0
+    created: "2024-09-16T12:28:43.93614565Z"
+    description: A Helm chart for installing Percona Server MongoDB Cluster Databases using the PSMDB Operator.
+    digest: 3a4e6d711bf8ac7bd8d205e5365feaf32793403d215b7121f9bfe0c3b61c43e4
+    home: https://www.percona.com/doc/kubernetes-operator-for-psmongodb/index.html
+    maintainers:
+    - email: tomislav.plavcic@percona.com
+      name: tplavcic
+    - email: natalia.marukovich@percona.com
+      name: nmarukovich
+    name: psmdb-db
+    urls:
+    - https://github.com/tuotempo/percona-helm-charts/releases/download/psmdb-db-1.17.0/psmdb-db-1.17.0.tgz
+    version: 1.17.0
+  - apiVersion: v2
     appVersion: 1.15.0
     created: "2024-05-14T09:56:05.690208017Z"
     description: A Helm chart for installing Percona Server MongoDB Cluster Databases using the PSMDB Operator.
@@ -126,6 +245,23 @@ entries:
     - https://github.com/tuotempo/percona-helm-charts/releases/download/psmdb-db-1.15.3/psmdb-db-1.15.3.tgz
     version: 1.15.3
   psmdb-operator:
+  - apiVersion: v2
+    appVersion: 1.17.0
+    created: "2024-09-16T12:28:44.043784193Z"
+    description: A Helm chart for deploying the Percona Operator for MongoDB
+    digest: a9bcc3e0336f7746820fd2358ef5e2317f5b5c47a03017cf355e30e02cf62e0d
+    home: https://docs.percona.com/percona-operator-for-mongodb/
+    maintainers:
+    - email: tomislav.plavcic@percona.com
+      name: tplavcic
+    - email: natalia.marukovich@percona.com
+      name: nmarukovich
+    - email: sergey.pronin@percona.com
+      name: spron-in
+    name: psmdb-operator
+    urls:
+    - https://github.com/tuotempo/percona-helm-charts/releases/download/psmdb-operator-1.17.0/psmdb-operator-1.17.0.tgz
+    version: 1.17.0
   - apiVersion: v2
     appVersion: 1.15.0
     created: "2024-05-14T09:56:05.799103676Z"
@@ -144,6 +280,24 @@ entries:
     - https://github.com/tuotempo/percona-helm-charts/releases/download/psmdb-operator-1.15.4/psmdb-operator-1.15.4.tgz
     version: 1.15.4
   pxc-db:
+  - apiVersion: v2
+    appVersion: 1.15.0
+    created: "2024-09-16T12:28:44.158577425Z"
+    description: A Helm chart for installing Percona XtraDB Cluster Databases using the PXC Operator.
+    digest: 0c2afc915207011a152b8102b4cc337f0f2e9ec286d0c3259d61b2b77923b702
+    home: https://www.percona.com/doc/kubernetes-operator-for-pxc/kubernetes.html
+    icon: https://artifacthub.io/image/0b8875cd-6661-4269-9cf6-0fd92d59017b@1x
+    maintainers:
+    - email: tomislav.plavcic@percona.com
+      name: tplavcic
+    - email: sergey.pronin@percona.com
+      name: spron-in
+    - email: natalia.marukovich@percona.com
+      name: nmarukovich
+    name: pxc-db
+    urls:
+    - https://github.com/tuotempo/percona-helm-charts/releases/download/pxc-db-1.15.0/pxc-db-1.15.0.tgz
+    version: 1.15.0
   - apiVersion: v2
     appVersion: 1.14.0
     created: "2024-05-14T09:56:05.911094182Z"
@@ -235,6 +389,24 @@ entries:
     - https://github.com/tuotempo/percona-helm-charts/releases/download/pxc-db-1.13.2-tt/pxc-db-1.13.2-tt.tgz
     version: 1.13.2-tt
   pxc-operator:
+  - apiVersion: v2
+    appVersion: 1.15.0
+    created: "2024-09-16T12:28:44.272668369Z"
+    description: A Helm chart for deploying the Percona Operator for MySQL (based on Percona XtraDB Cluster)
+    digest: bd070998366c597158e8e93de0a4f1822d522926bd43bde5498f794a577d9039
+    home: https://docs.percona.com/percona-operator-for-mysql/pxc/
+    icon: https://artifacthub.io/image/0b8875cd-6661-4269-9cf6-0fd92d59017b@1x
+    maintainers:
+    - email: tomislav.plavcic@percona.com
+      name: tplavcic
+    - email: natalia.marukovich@percona.com
+      name: nmarukovich
+    - email: sergey.pronin@percona.com
+      name: spron-in
+    name: pxc-operator
+    urls:
+    - https://github.com/tuotempo/percona-helm-charts/releases/download/pxc-operator-1.15.0/pxc-operator-1.15.0.tgz
+    version: 1.15.0
   - apiVersion: v2
     appVersion: 1.14.0
     created: "2024-05-14T09:56:06.041827892Z"
