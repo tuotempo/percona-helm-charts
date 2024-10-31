@@ -85,6 +85,7 @@ pmm:
   serverHost: monitoring-service
 #   mongodParams: ""
 #   mongosParams: ""
+#   resources: {}
 #   containerSecurityContext: {}
 
 replsets:
