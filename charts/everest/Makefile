@@ -24,7 +24,7 @@ deps: add-repos
 	helm dependency update ./charts/everest-db-namespace
 
 docs-gen:
-	docker run --rm -v "$(PWD)/:/helm-docs" -u $(shell id -u) jnorwood/helm-docs:v1.9.1
+	docker run --rm -v "$(PWD)/:/helm-docs" -u $(shell id -u) jnorwood/helm-docs:v1.14.2
 
 
 EVEREST_REPO_URL ?= https://github.com/percona/everest-operator
