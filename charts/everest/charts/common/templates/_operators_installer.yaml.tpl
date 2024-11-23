@@ -1,15 +1,20 @@
 #
 # @param .namespace     The namespace where the operators are installed
 #
+<<<<<<<< HEAD:charts/everest/charts/common/templates/_install_operators.yaml.tpl
 {{- define "everest.installOperators" }}
 {{- $hookName := "everest-helm-post-install-hook" }}
+========
+{{- define "everest.operatorsInstaller" }}
+{{- $hookName := "everest-operators-installer" }}
+>>>>>>>> 31fa5e0 (allow modifying operator installation on existing db namespaces):charts/everest/charts/common/templates/_operators_installer.yaml.tpl
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: {{ $hookName }}
   namespace: {{ .namespace }}
   annotations:
-    "helm.sh/hook": post-install
+    "helm.sh/hook": post-install,post-upgrade
     "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
 ---
 apiVersion: rbac.authorization.k8s.io/v1
@@ -18,7 +23,7 @@ metadata:
   name: {{ $hookName }}
   namespace: {{ .namespace }}
   annotations:
-    "helm.sh/hook": post-install
+    "helm.sh/hook": post-install,post-upgrade
     "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
 rules:
   - apiGroups:
@@ -56,7 +61,7 @@ metadata:
   name: {{ $hookName }}
   namespace: {{ .namespace }}
   annotations:
-    "helm.sh/hook": post-install
+    "helm.sh/hook": post-install,post-upgrade
     "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
 roleRef:
   apiGroup: rbac.authorization.k8s.io
@@ -70,10 +75,10 @@ subjects:
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: {{ $hookName }}-{{ randNumeric 6 }}
+  name: {{ $hookName }}
   namespace: {{ .namespace }}
   annotations:
-    "helm.sh/hook": post-install
+    "helm.sh/hook": post-install,post-upgrade
     "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
 spec:
   template:
@@ -89,6 +94,12 @@ spec:
               subs=$(kubectl -n {{ .namespace }} get subscription -o jsonpath='{.items[*].metadata.name}')
               for sub in $subs
               do
+                subSts=$(kubectl -n {{ .namespace }} get sub $sub -o jsonpath='{.status.state}')
+                if [ "$subSts" = "AtLatestKnown" ]; then
+                  echo "Subscription $sub is at latest known, skip.."
+                  continue
+                fi
+
                 echo "Waiting for InstallPlan to be created for Subscription $sub"
                 kubectl wait --for=jsonpath='.status.installplan.name' sub/$sub -n {{ .namespace }} --timeout=600s
                 
