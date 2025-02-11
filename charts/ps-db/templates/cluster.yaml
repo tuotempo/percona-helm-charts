@@ -481,6 +481,9 @@ spec:
     enabled: false
   {{- else }}
     enabled: true
+    {{- if .Values.backup.schedule }}
+    schedule: {{- .Values.backup.schedule | toYaml | nindent 4 }}
+    {{- end }}
     {{- if $backup.imagePullPolicy }}
     imagePullPolicy: {{ $backup.imagePullPolicy }}
     {{- end }}
