@@ -1129,10 +1129,8 @@ spec:
     kind: DataImporter
     listKind: DataImporterList
     plural: dataimporters
-    shortNames:
-    - di
     singular: dataimporter
-  scope: Namespaced
+  scope: Cluster
   versions:
   - additionalPrinterColumns:
     - jsonPath: .spec.displayName
@@ -1177,6 +1175,7 @@ spec:
                   openAPIV3Schema:
                     description: OpenAPIV3Schema is the OpenAPI v3 schema of the data
                       importer.
+                    x-kubernetes-preserve-unknown-fields: true
                 type: object
               description:
                 description: Description is the description of the data importer.
@@ -1232,8 +1231,8 @@ spec:
     - jsonPath: .spec.targetClusterRef.name
       name: TargetCluster
       type: string
-    - jsonPath: .status
-      name: Status
+    - jsonPath: .status.phase
+      name: Phase
       type: string
     name: v1alpha1
     schema:
@@ -1297,7 +1296,7 @@ spec:
                         type: string
                     type: object
                     x-kubernetes-map-type: atomic
-                  directory:
+                  path:
                     description: |-
                       Path is the path to the directory to import the data from.
                       This may be a path to a file or a directory, depending on the data importer.
