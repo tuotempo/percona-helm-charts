@@ -20,11 +20,15 @@ prepare-chart:
 
 .PHONY: release
 release: prepare-chart
+release:
+	$(MAKE) release -C charts/everest-crds
 
 .PHONY: release-dev
 release-dev: IMAGE_PREFIX=perconalab
 release-dev: TELEMETRY=false
 release-dev: prepare-chart
+release-dev:
+	$(MAKE) release-dev -C charts/everest-crds
 
 .PHONY: add-repos
 add-repos:
