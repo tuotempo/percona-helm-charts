@@ -8,7 +8,7 @@ Useful links:
 
 ## Pre-requisites
 * Percona Operator for MySQL running in your Kubernetes cluster. See installation details [here](https://github.com/percona/percona-helm-charts/blob/main/charts/ps-operator) or in the [Operator Documentation](https://www.percona.com/doc/kubernetes-operator-for-mysql/helm.html).
-* Kubernetes 1.29+
+* Kubernetes 1.30+
 * Helm v3
 
 # Chart Details
@@ -51,7 +51,7 @@ The chart can be customized using the following configurable parameters:
 | `mysql.clusterType`                               | MySQL Cluster type (`async` or `group-replication`)                                                                                                           | `group-replication`        |
 | `mysql.autoRecovery`                              | Enable/Disable auto recovery from full cluster crash                                                                                                          | `true`                     |
 | `mysql.image.repository`                          | MySQL Container image repository                                                                                                                              | `percona/percona-server`   |
-| `mysql.image.tag`                                 | MySQL Container image tag                                                                                                                                     | `8.0.40-31`                |
+| `mysql.image.tag`                                 | MySQL Container image tag                                                                                                                                     | `8.0.42-33`                |
 | `mysql.imagePullPolicy`                           | The policy used to update images                                                                                                                              | `Always`                   |
 | `mysql.imagePullSecrets`                          | MySQL Container pull secret                                                                                                                                   | `[]`                       |
 | `mysql.initImage`                                 | An alternative image for the initial mysql setup                                                                                                              | `""`                       |
@@ -76,7 +76,6 @@ The chart can be customized using the following configurable parameters:
 | `mysql.expose.externalTrafficPolicy`              | Network service externalTrafficPolicy                                                                                                                         | ``                         |
 | `mysql.expose.internalTrafficPolicy`              | Network service internalTrafficPolicy                                                                                                                         | ``                         |
 | `mysql.expose.labels`                             | Network service labels                                                                                                                                        | `{}`                       |
-| `mysql.expose.loadBalancerIP`                     | The static IP-address for the load balancer                                                                                                                   | `""`                       |
 | `mysql.expose.loadBalancerSourceRanges`           | The range of client IP addresses from which the load balancer should be reachable                                                                             | `[]`                       |
 | `mysql.exposePrimary.enabled`                     | Allow access to MySQL primary from outside of Kubernetes                                                                                                               | `false`                    |
 | `mysql.exposePrimary.type`                        | Network service access point type                                                                                                                                      | `ClusterIP`                |
@@ -100,7 +99,7 @@ The chart can be customized using the following configurable parameters:
 ||
 | `proxy.haproxy.enabled`                          | Enable/Disable HAProxy pods                                                                                                                                   | `true`                     |
 | `proxy.haproxy.image.repository`                 | HAProxy Container image repository                                                                                                                            | `percona/haproxy`          |
-| `proxy.haproxy.image.tag`                        | HAProxy Container image tag                                                                                                                                   | `2.8.11`                   |
+| `proxy.haproxy.image.tag`                        | HAProxy Container image tag                                                                                                                                   | `2.8.14`                   |
 | `proxy.haproxy.imagePullPolicy`                  | The policy used to update images                                                                                                                              | `Always`                   |
 | `proxy.haproxy.imagePullSecrets`                 | HAProxy Container pull secret                                                                                                                                 | `[]`                       |
 | `proxy.haproxy.initImage`                        | An alternative image for the initial haproxy setup                                                                                                            | `""`                       |
@@ -130,12 +129,11 @@ The chart can be customized using the following configurable parameters:
 | `proxy.haproxy.expose.externalTrafficPolicy`     | Network service externalTrafficPolicy                                                                                                                         | ``                         |
 | `proxy.haproxy.expose.internalTrafficPolicy`     | Network service internalTrafficPolicy                                                                                                                         | ``                         |
 | `proxy.haproxy.expose.labels`                    | Network service labels                                                                                                                                        | `{}`                       |
-| `proxy.haproxy.expose.loadBalancerIP`            | The static IP-address for the load balancer                                                                                                                   | `""`                       |
 | `proxy.haproxy.expose.loadBalancerSourceRanges`  | The range of client IP addresses from which the load balancer should be reachable                                                                             | `[]`                       |
 ||
 | `proxy.router.enabled`                          | Enable/Disable Router pods in group replication                                                                                                               | `false`                        |
 | `proxy.router.image.repository`                 | Router Container image repository                                                                                                                             | `percona/percona-mysql-router` |
-| `proxy.router.image.tag`                        | Router Container image tag                                                                                                                                    | `8.0.40`                       |
+| `proxy.router.image.tag`                        | Router Container image tag                                                                                                                                    | `8.0.42`                       |
 | `proxy.router.imagePullPolicy`                  | The policy used to update images                                                                                                                              | `Always`                       |
 | `proxy.router.imagePullSecrets`                 | Router Container pull secret                                                                                                                                  | `[]`                           |
 | `proxy.router.initImage`                        | An alternative image for the initial router setup                                                                                                             | `""`                           |
@@ -161,7 +159,6 @@ The chart can be customized using the following configurable parameters:
 | `proxy.router.expose.externalTrafficPolicy`     | Network service externalTrafficPolicy                                                                                                                         | ``                             |
 | `proxy.router.expose.internalTrafficPolicy`     | Network service internalTrafficPolicy                                                                                                                         | ``                             |
 | `proxy.router.expose.labels`                    | Network service labels                                                                                                                                        | `{}`                           |
-| `proxy.router.expose.loadBalancerIP`            | The static IP-address for the load balancer                                                                                                                   | `""`                           |
 | `proxy.router.expose.loadBalancerSourceRanges`  | The range of client IP addresses from which the load balancer should be reachable                                                                             | `[]`                           |
 ||
 | `orchestrator.enabled`                            | Enable/Disable orchestrator pods in async replication                                                                                                         | `true`                         |
@@ -200,7 +197,7 @@ The chart can be customized using the following configurable parameters:
 | `orchestrator.expose.loadBalancerSourceRanges`    | The range of client IP addresses from which the load balancer should be reachable                                                                             | `[]`                           |
 ||
 | `pmm.image.repository`   | PMM Container image repository          | `percona/pmm-client`                |
-| `pmm.image.tag`          | PMM Container image tag                 | `2.44.0`                            |
+| `pmm.image.tag`          | PMM Container image tag                 | `3.2.0`                             |
 | `pmm.imagePullPolicy`    | The policy used to update images        | ``                                  |
 | `pmm.serverHost`         | PMM server related K8S service hostname | `monitoring-service`                |
 | `pmm.resources.requests` | PMM Container resource requests         | `{"memory": "150M", "cpu": "300m"}` |
@@ -214,7 +211,7 @@ The chart can be customized using the following configurable parameters:
 ||
 | `backup.enabled`                  | Enable backups                                                                              | `true`                       |
 | `backup.image.repository`         | Backup Container image repository                                                           | `percona/percona-xtrabackup` |
-| `backup.image.tag`                | Backup Container image tag                                                                  | `8.0.35-31`                  |
+| `backup.image.tag`                | Backup Container image tag                                                                  | `8.0.35-33`                  |
 | `backup.backoffLimit`             | The number of retries to make a backup                                                      | ``                           |
 | `backup.imagePullPolicy`          | The policy used to update images                                                            | `Always`                     |
 | `backup.imagePullSecrets`         | Backup Container pull secret                                                                | `[]`                         |
